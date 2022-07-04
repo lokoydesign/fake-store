@@ -20,6 +20,10 @@ const StyledHeader = styled.header`
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 1em;
+
+  @media (min-width: 82em) {
+    padding-inline: calc((100% - 80em) / 2);
+  }
 `
 
 const StyledH1 = styled.h1`

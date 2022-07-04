@@ -21,13 +21,14 @@ export default function SiteNav() {
   return (
     <StyledNavContainer>
       <StyledNav>
-        <NavLink to="/">All products</NavLink>
-        {categories.map((cat, i) => <NavLink key={`category-${i}`}to={`/category/${encodeURIComponent(cat)}`}>{cat}</NavLink>)}
+        <StyledNavLink to="/">All products</StyledNavLink>
+        {categories.map((cat, i) => <StyledNavLink key={`category-${i}`}to={`/category/${encodeURIComponent(cat)}`}>{cat}</StyledNavLink>)}
+        <StyledSaleLink to="/sale">Sale</StyledSaleLink>
       </StyledNav>
       <StyledStoreNav>
-        <NavLink to="#"><FontAwesomeIcon icon={faHeart} /></NavLink>
-        <NavLink to="#"><FontAwesomeIcon icon={faUser} /></NavLink>
-        <NavLink to="#" className="cartIcon"><FontAwesomeIcon icon={faCartShopping} /></NavLink>
+        <StyledNavIconLink to="#"><FontAwesomeIcon icon={faHeart} /></StyledNavIconLink>
+        <StyledNavIconLink to="#"><FontAwesomeIcon icon={faUser} /></StyledNavIconLink>
+        <StyledNavCartLink to="#"><FontAwesomeIcon icon={faCartShopping} /></StyledNavCartLink>
       </StyledStoreNav>
     </StyledNavContainer>
   )
@@ -39,6 +40,10 @@ const StyledNavContainer = styled.div`
   padding: 1.5em 1em;
   border-block-end: .128em solid var(--color-blue);
   justify-content: space-between;
+
+  @media (min-width: 82em) {
+    padding-inline: calc((100% - 80em) / 2);
+  }
 `
 
 const StyledNav = styled.nav`
@@ -46,40 +51,44 @@ const StyledNav = styled.nav`
   gap: 1em;
   text-transform: uppercase;
   font-weight: 600;
-
-  a {
-    color: var(--color-black);
-  }
-
-  .active {
-    color: var(--color-blue);
-  }
 `
 
 const StyledStoreNav = styled.nav`
   display: flex;
   gap: 1em;
   font-size: 1.2rem;
+`
 
-  a {
-    color: var(--color-black);
+const StyledNavLink = styled(NavLink)`
+  color: var(--color-black);
+
+  &.active {
+    color: var(--color-blue);
   }
+`
 
-  .cartIcon {
-    position: relative;
+const StyledSaleLink = styled(StyledNavLink)`
+  color: var(--color-red);
+`
 
-    &::after {
-      background-color: var(--color-blue);
-      color: var(--color-white);
-      content: '50';
-      padding: .25em;
-      font-size: .5rem;
-      font-weight: 700;
-      border-radius: 50%;
-      position: absolute;
-      inset-block-start: -25%;
-      inset-inline-end: -25%;
-      border: .25em solid var(--color-white);
-    }
+const StyledNavIconLink = styled(NavLink)`
+  color: var(--color-black);
+`
+
+const StyledNavCartLink = styled(StyledNavIconLink)`
+  position: relative;
+
+  &::after {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    content: '50';
+    padding: .25em;
+    font-size: .5rem;
+    font-weight: 700;
+    border-radius: 50%;
+    position: absolute;
+    inset-block-start: -25%;
+    inset-inline-end: -25%;
+    border: .25em solid var(--color-white);
   }
 `
