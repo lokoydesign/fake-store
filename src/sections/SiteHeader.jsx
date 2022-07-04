@@ -7,8 +7,8 @@ export default function SiteHeader() {
     <StyledHeader className="constrain-width">
       <StyledH1>FakeStore</StyledH1>
       <StyledSocialNav>
-        <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
-        <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+        <a href="#" title="Join us on Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
+        <a href="#" title="Join us on Facebook"><FontAwesomeIcon icon={faFacebook} /></a>
       </StyledSocialNav>
     </StyledHeader>
   )
@@ -39,7 +39,7 @@ const StyledH1 = styled.h1`
 const StyledSocialNav = styled.nav`
   display: flex;
   gap: 1em;
-  font-size: 1rem;
+  font-size: 1.2rem;
   align-items: center;
 
   a {
