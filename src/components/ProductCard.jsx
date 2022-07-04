@@ -16,10 +16,10 @@ export default function ProductCard({ id, title, image, rating, price }) {
 
   return (
     <StyledCard>
-      <StyledImgWrapper>
+      <StyledImgWrapper href={`/product/${id}`}>
         <StyledCardImg src={image} />
       </StyledImgWrapper>
-      <StyledCardTitle href={`/products/${id}`}>{title}</StyledCardTitle>
+      <StyledCardTitle href={`/product/${id}`} title={title}>{title.length > 26 ? title.substring(0, 26)+'...' : title}</StyledCardTitle>
       <StyledCardPrice>{price.toFixed(2)} Credits</StyledCardPrice>
       <Rating {...rating} />
       <StockStatus amountInStock={999} />
@@ -31,19 +31,22 @@ export default function ProductCard({ id, title, image, rating, price }) {
 const StyledCard = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr repeat(4, auto);
   border: 1px solid var(--color-gray);
   border-radius: .25em;
   padding: 1em;
-  gap: .25em;
+  gap: .5em;
+  align-items: end;
+  align-content: end;
 `
 
-const StyledImgWrapper = styled.div`
+const StyledImgWrapper = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
   grid-column: span 2;
   height: 20em;
-  margin-block-end: 1em;
+  padding-block-end: 1em;
 `
 
 const StyledCardImg = styled.img`
@@ -54,8 +57,11 @@ const StyledCardTitle = styled.a`
   grid-column: span 2;
   color: var(--color-black);
   font-weight: 500;
-  height: 2.5em;
-  overflow: hidden;
+
+  &:hover {
+    color: var(--color-blue);
+    text-decoration: none;
+  }
 `
 
 const StyledCardPrice = styled.b`
