@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export default function ProductCardsContainer({ title, children }) {
   return (
     <StyledContainer>
-      <h3>{title}</h3>
+      <StyledTitle>{title}</StyledTitle>
       {children}
     </StyledContainer>
   )
@@ -13,6 +13,7 @@ const StyledContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
+  margin-block: 2em;
 
   > * {
     grid-column: span 4;
@@ -25,9 +26,11 @@ const StyledContainer = styled.div`
       grid-column: span 1;
     }
   }
+`
 
-  h3 {
-    grid-column: span 4;
-    margin: 0;
-  }
+const StyledTitle = styled.h3`
+  grid-column: span 4;
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 600;
 `
