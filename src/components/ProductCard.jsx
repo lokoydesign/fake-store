@@ -22,7 +22,7 @@ export default function ProductCard({ id, title, image, rating, price }) {
       <StyledCardTitle href={`/products/${id}`}>{title}</StyledCardTitle>
       <StyledCardPrice>{price.toFixed(2)} Credits</StyledCardPrice>
       <Rating {...rating} />
-      <StockStatus amount={999} />
+      <StockStatus amountInStock={999} />
       <StyledCardButton text="Add to cart" onClick={handleAddToCart} />
     </StyledCard>
   )

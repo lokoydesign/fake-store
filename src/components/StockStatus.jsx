@@ -1,31 +1,34 @@
 import styled from 'styled-components'
 
 export default function StockStatus({ amountInStock = 0 }) {
-  const stockStr = (0 < amountInStock) ? 'In stock' : 'Out of stock'
+  let stockStr = 'Out of stock'
+
+  if (99 < amountInStock) {
+    stockStr = '100+ in stock'
+  } else if (0 < amountInStock) {
+    stockStr = `${amountInStock} in stock`
+  }
 
   return (
     <StyledContainer>
-      <StyledSpan count={amountInStock} />{stockStr}
+      <StyledSpan count={amountInStock} />
+      <span>{stockStr}</span>
     </StyledContainer>
   )
 }
 
-const StyledContainer = styled.span`
+const StyledContainer = styled.div`
+  display: inline-flex;
   font-size: .85rem;
-  text-align: end;
+  justify-content: flex-end;
+  align-items: center;
+  gap: .5em;
 `
 
 const StyledSpan = styled.span`
   display: inline-block;
-  background-color: ${({ count }) => {
-    if (count <= 0) {
-      return 'var(--color-red)'
-    } else {
-      return 'var(--color-green)'
-    }
-  }};
+  background-color: ${({ count }) => (count > 0) ? 'var(--color-green)' : 'var(--color-red)'};
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  margin-inline-end: .5em;
 `
