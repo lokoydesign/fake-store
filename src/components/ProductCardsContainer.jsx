@@ -23,14 +23,8 @@ const StyledContainer = styled.div`
 
   > * {
     grid-column: span 4;
-  
-    @media (min-width: 38em) {
-      grid-column: span 2;
-    }
-
-    @media (min-width: 70em) {
-      grid-column: span 1;
-    }
+    @media (min-width: 38em) { grid-column: span 2; }
+    @media (min-width: 74em) { grid-column: span 1; }
   }
 `
 
