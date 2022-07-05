@@ -6,7 +6,7 @@ export default function ClubBanner() {
     <StyledBanner>
       <StyledBannerTitle>Fakestore club</StyledBannerTitle>
       <StyledBannerDescription>Join over 5000+ customers in getting exclusive offers and free shipping today!</StyledBannerDescription>
-      <StyledBannerLink to="#">Try now</StyledBannerLink>
+      <StyledBannerLink to="/club">Try now</StyledBannerLink>
     </StyledBanner>
   )
 }
