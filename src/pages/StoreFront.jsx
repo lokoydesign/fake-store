@@ -22,7 +22,6 @@ export default function StoreFront() {
         const _featured = data.map(({ id }) => id)
         _featured.sort(() => Math.random() - 0.5)
         _featured.length = 8
-        console.log(data, _featured, categories)
 
         setProducts(data)
         setCategories(categories)
