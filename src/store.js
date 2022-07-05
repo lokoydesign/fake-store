@@ -4,6 +4,6 @@ import cartReducer from './features/cartSlice'
 
 export default configureStore({
   reducer: {
-    cartReducer,
+    cart: cartReducer,
   }
 })

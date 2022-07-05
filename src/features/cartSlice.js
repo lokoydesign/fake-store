@@ -11,11 +11,14 @@ const reducers = {
     if (existing) {
       existing.amount++
     } else {
-      state.items.push(action.payload)
+      state.items.push({
+        id: action.payload,
+        amount: 1,
+      })
     }
   },
   removeItemFromCart: function(state, action) {
-    state.items = state.items.filter(({ id }) => id !== action.payload.id) 
+    state.items = state.items.filter(({ id }) => id !== action.payload) 
   }
 }
 
