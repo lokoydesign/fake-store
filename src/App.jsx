@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import styled from 'styled-components'
 
 import SiteHeader from './sections/SiteHeader'
 import SiteNav from './sections/SiteNav'
@@ -13,12 +14,39 @@ export default function App() {
     <>
       <SiteHeader />
       <SiteNav />
-      <Routes>
-        <Route path="*" element={<StoreFrontPage />} />
-        <Route path="/category/:category" element={<CategoryPage />} />
-      </Routes>
+      <StyledMain>
+        <Routes>
+          <Route path="*" element={<StoreFrontPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+        </Routes>
+      </StyledMain>
       <SiteFooter />
       <Copyright />
     </>
   )
 }
+
+const StyledMain = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-block: 2em;
+
+  @media (min-width: 48em) {
+    margin-block: 4em;
+  }
+
+  @media (min-width: 82em) {
+    gap: 4em;
+  }
+
+  > * {
+    margin-inline: 1em;
+    width: calc(100% - 2em);
+    max-width: 80em;
+
+    @media (min-width: 82em) {
+      margin-inline: auto;
+    }
+  }
+`
