@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import Rating from './Rating'
 import StockStatus from './StockStatus'
@@ -16,10 +17,10 @@ export default function ProductCard({ id, title, image, rating, price }) {
 
   return (
     <StyledCard>
-      <StyledImgWrapper href={`/product/${id}`}>
+      <StyledImgWrapper to={`/product/${id}`}>
         <StyledCardImg src={image} />
       </StyledImgWrapper>
-      <StyledCardTitle href={`/product/${id}`} title={title}>{title.length > 26 ? title.substring(0, 26)+'...' : title}</StyledCardTitle>
+      <StyledCardTitle to={`/product/${id}`} title={title}>{title.length > 26 ? title.substring(0, 26)+'...' : title}</StyledCardTitle>
       <StyledCardPrice>{price.toFixed(2)} Credits</StyledCardPrice>
       <Rating {...rating} />
       <StockStatus amountInStock={999} />
@@ -40,7 +41,7 @@ const StyledCard = styled.div`
   align-content: end;
 `
 
-const StyledImgWrapper = styled.a`
+const StyledImgWrapper = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +54,7 @@ const StyledCardImg = styled.img`
   max-height: 100%;
 `
 
-const StyledCardTitle = styled.a`
+const StyledCardTitle = styled(Link)`
   grid-column: span 2;
   color: var(--color-black);
   font-weight: 500;
