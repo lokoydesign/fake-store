@@ -34,6 +34,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
   word-break: break-word;
+  color: var(--color-black);
 }
 
 code {
