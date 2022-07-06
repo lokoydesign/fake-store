@@ -8,18 +8,27 @@ import { faBars, faXmark, faHeart, faUser, faCartShopping } from '@fortawesome/f
 import { ENDPOINTS } from '../constants'
 
 export default function SiteNav() {
-  const [ categories, setCategories ] = useState([])
+  const [ isLoading, setIsLoading ] = useState(true)
+  const [ categories, setCategories ] = useState(Array(4).fill(null))
   const [ isMenuVisible, setIsMenuVisible ] = useState(false)
   const cart = useSelector(state => state.cart)
 
   useEffect(function() {
-    fetch(ENDPOINTS.CATEGORIES)
-      .then(res => res.json())
-      .then(setCategories)
-      .catch(console.error)
-  }, [])
+    async function fetchAndSetCategories() {
+      setIsLoading(true)
 
-  if (1 > categories.length) return
+      try {
+        const data = await fetch(ENDPOINTS.CATEGORIES).then(res => res.json())
+      
+        setCategories(data)
+      
+      } catch (err) { console.error(err) }
+      
+      setIsLoading(false)
+    }
+
+    fetchAndSetCategories()
+  }, [])
 
   return (
     <StyledNavContainer>
@@ -27,9 +36,11 @@ export default function SiteNav() {
       
       <StyledNav isMenuVisible={isMenuVisible}>
         <StyledToggleIcon icon={faXmark} onClick={() => setIsMenuVisible(false)} />
-        <StyledNavLink to="/">Store</StyledNavLink>
-        {categories.map((cat, i) => <StyledNavLink key={`category-${i}`}to={`/category/${encodeURIComponent(cat)}`}>{cat}</StyledNavLink>)}
-        <StyledSaleLink to="/sale">Sale</StyledSaleLink>
+        {!isLoading && <StyledNavLink to="/">Store</StyledNavLink>}
+        {isLoading
+          ? Array(10).fill(null).map((value, i) => <StyledLoadingMenuItem key={i} />)
+          : categories.map((cat, i) => <StyledNavLink key={`category-${i}`}to={`/category/${encodeURIComponent(cat)}`}>{cat}</StyledNavLink>)}
+        {!isLoading && <StyledSaleLink to="/sale">Sale</StyledSaleLink>}
       </StyledNav>
 
       <StyledStoreNav>
@@ -53,6 +64,13 @@ const StyledNavContainer = styled.div`
   @media (min-width: 82em) {
     padding-inline: calc((100% - 80em) / 2);
   }
+`
+
+const StyledLoadingMenuItem = styled.span`
+  background-color: var(--color-gray--500);
+  width: 5em;
+  height: 1rem;
+  border-radius: .5em;
 `
 
 const StyledToggleIcon = styled(FontAwesomeIcon)`

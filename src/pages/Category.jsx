@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
 
 import PageHeader from '../components/PageHeader'
 import ProductCard from '../components/ProductCard'
@@ -12,22 +11,34 @@ import ClubBanner from '../banners/Club'
 
 import { ENDPOINTS } from '../constants'
 
-export default function CategoryPage({ title }) {
+export default function CategoryPage() {
+  const [ isLoading, setIsLoading ] = useState(false)
   const [ products, setProducts ] = useState([])
   const params = useParams()
 
   useEffect(function() {
-    fetch(`${ENDPOINTS.CATEGORY}/${encodeURIComponent(params.category)}`)
-      .then(res => res.json())
-      .then(setProducts)
-      .catch(console.error)
+    async function fetchAndSetProcucts() {
+      setIsLoading(true)
+
+      try {
+        const URI = `${ENDPOINTS.CATEGORY}/${encodeURIComponent(params.category)}`
+        const data = await fetch(URI).then(res => res.json())
+      
+        setProducts(data)
+      
+      } catch(err) { console.error(err) }
+      
+      setIsLoading(false)
+    }
+
+    fetchAndSetProcucts()
   }, [params.category])
   
   return (
     <>
       <PageHeader title={params.category}/>
-      <ProductCardsContainer>
-        {products.map((product) => <ProductCard key={product.id} {...product}/>)}
+      <ProductCardsContainer isLoading={isLoading} size={16}>
+        {products.map((product, i) => <ProductCard key={product.id || i} {...product}/>)}
       </ProductCardsContainer>
       <ClubBanner />
       <FeaturedProducts />
