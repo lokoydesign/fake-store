@@ -6,6 +6,7 @@ import SiteFooter from './sections/SiteFooter'
 import Copyright from './sections/Copyright'
 
 import StoreFrontPage from './pages/StoreFront'
+import CategoryPage from './pages/Category'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <SiteNav />
       <Routes>
         <Route path="*" element={<StoreFrontPage />} />
+        <Route path="/category/:category" element={<CategoryPage />} />
       </Routes>
       <SiteFooter />
       <Copyright />
