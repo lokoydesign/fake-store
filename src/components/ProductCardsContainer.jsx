@@ -16,17 +16,10 @@ export default function ProductCardsContainer({ isLoading, title, size, children
   )
 }
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
-  margin-block: 2em;
-  margin-inline: 1em;
-  max-width: 80em;
-
-  @media (min-width: 82em) {
-    margin-inline: auto;
-  }
 
   > * {
     grid-column: span 4;

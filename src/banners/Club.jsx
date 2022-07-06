@@ -15,10 +15,7 @@ const StyledBanner = styled.div`
   background-color: var(--color-blue);
   color: var(--color-white);
   display: grid;
-  margin-block: 4em;
-  margin-inline: 1em;
   padding: 2em;
-  max-width: 80em;
   gap: 1em;
   border-radius: .5em;
   grid-template-columns: minmax(0, 1fr);
@@ -38,10 +35,6 @@ const StyledBanner = styled.div`
       "description button"
     ;
   }
-
-  @media (min-width: 82em) {
-    margin-inline: auto;
-  }
 `
 
 const StyledBannerTitle = styled.h3`
@@ -50,7 +43,6 @@ const StyledBannerTitle = styled.h3`
   text-transform: uppercase;
   grid-area: title;
 `
-
 
 const StyledBannerDescription = styled.p`
   margin: 0;

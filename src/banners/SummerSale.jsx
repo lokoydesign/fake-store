@@ -13,15 +13,4 @@ export default function SummerSaleBanner() {
 
 const StyledBannerLink = styled(Link)`
   display: block;
-  margin-block: 2em;
-  max-width: 80em;
-  margin-inline: 1em;
-
-  @media (min-width: 48em) {
-    margin-block: 4em;
-  }
-
-  @media (min-width: 82em) {
-    margin-inline: auto;
-  }
 `

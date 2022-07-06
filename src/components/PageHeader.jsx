@@ -10,11 +10,9 @@ export default function PageHeader({ title, children }) {
 }
 
 const StyledHeader = styled.header`
-  margin: 2em 1em;
-  max-width: 80em;
   text-transform: capitalize;
 
-  @media (min-width: 82em) {
-    margin-inline: auto;
+  h1 {
+    margin-block: 0;
   }
 `

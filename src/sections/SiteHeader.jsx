@@ -4,7 +4,7 @@ import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 export default function SiteHeader() {
   return (
-    <StyledHeader className="constrain-width">
+    <StyledHeader>
       <StyledH1>FakeStore</StyledH1>
       <StyledSocialNav>
         <a href="#" title="Join us on Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
