@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
+import ProductCard from './ProductCard'
+
 export default function ProductCardsContainer({ isLoading, title, size, children }) {
   if (isLoading) return (
     <StyledContainer>
       {title && <StyledLoadingTitle />}
-      {Array(size).fill(null).map((value, i) => <StyledLoadingCard key={i} />)}
+      {Array(size).fill(null).map((value, i) => <ProductCard key={i} isLoading={true} />)}
     </StyledContainer>
   )
   
@@ -41,11 +43,4 @@ const StyledTitle = styled.h3`
   margin: 0;
   text-transform: capitalize;
   font-weight: 600;
-`
-
-const StyledLoadingCard = styled.div`
-  background-color: var(--color-gray--500);
-  width: 100%;
-  min-height: 32em;
-  border-radius: .5em;
 `
