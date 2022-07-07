@@ -31,7 +31,7 @@ export default function FeaturedProducts({ title, category, size = 4 }) {
   }, [])
   
   return (
-    <ProductCardsContainer isLoading={isLoading} size={size} title={title || 'Featured products'}>
+    <ProductCardsContainer isLoading={isLoading} size={size} title={title || category || 'Featured products'}>
       {products.map((product) => <ProductCard key={product.id} {...product}/>)}
     </ProductCardsContainer>
   )
