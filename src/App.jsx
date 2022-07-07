@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import SiteHeader from './sections/SiteHeader'
@@ -10,6 +11,12 @@ import StoreFrontPage from './pages/StoreFront'
 import CategoryPage from './pages/Category'
 
 export default function App() {
+  const location = useLocation()
+
+  useEffect(function() {
+    window.scrollTo(0, 0)
+  }, [location])
+
   return (
     <>
       <SiteHeader />
@@ -31,6 +38,7 @@ const StyledMain = styled.main`
   flex-direction: column;
   gap: 2em;
   margin-block: 2em;
+  min-height: 50vh;
 
   @media (min-width: 48em) {
     margin-block: 4em;
