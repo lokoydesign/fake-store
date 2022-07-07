@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark, faHeart, faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,6 +12,7 @@ export default function SiteNav() {
   const [ categories, setCategories ] = useState(Array(4).fill(null))
   const [ isMenuVisible, setIsMenuVisible ] = useState(false)
   const cart = useSelector(state => state.cart)
+  const location = useLocation()
 
   useEffect(function() {
     async function fetchAndSetCategories() {
@@ -29,6 +30,8 @@ export default function SiteNav() {
 
     fetchAndSetCategories()
   }, [])
+
+  useEffect(() => setIsMenuVisible(false), [location])
 
   return (
     <StyledNavContainer>
