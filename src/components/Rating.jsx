@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export default function Rating({ rate, count }) {
+export default function Rating({ className, rate, count }) {
   return (
-    <StyledContainer title={`${rate} out of 5 dots`}>
+    <StyledContainer className={className} title={`${rate} out of 5 dots`}>
       <StyledSpan lit={rate >= 1} />
       <StyledSpan lit={rate >= 2} />
       <StyledSpan lit={rate >= 3} />
