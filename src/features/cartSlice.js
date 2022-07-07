@@ -9,16 +9,14 @@ const reducers = {
     const existing = state.items.find(({ id }) => id === action.payload.id)
 
     if (existing) {
-      existing.amount++
+      existing.amount += action.payload.amount
     } else {
-      state.items.push({
-        id: action.payload,
-        amount: 1,
-      })
+      state.items.push(action.payload)
     }
   },
+
   removeItemFromCart: function(state, action) {
-    state.items = state.items.filter(({ id }) => id !== action.payload) 
+    state.items = state.items.filter(({ id }) => id !== action.payload)
   }
 }
 
