@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default function StockStatus({ amountInStock = 0 }) {
+export default function StockStatus({ className, amountInStock = 0 }) {
   let stockStr = 'Out of stock'
 
   if (99 < amountInStock) {
@@ -10,7 +10,7 @@ export default function StockStatus({ amountInStock = 0 }) {
   }
 
   return (
-    <StyledContainer>
+    <StyledContainer className={className}>
       <StyledSpan count={amountInStock} />
       <span>{stockStr}</span>
     </StyledContainer>
