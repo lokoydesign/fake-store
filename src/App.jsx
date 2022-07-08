@@ -10,6 +10,7 @@ import Copyright from './sections/Copyright'
 import StoreFrontPage from './pages/StoreFront'
 import CategoryPage from './pages/Category'
 import ProductPage from './pages/Product'
+import CartPage from './pages/Cart'
 
 export default function App() {
   const location = useLocation()
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="*" element={<StoreFrontPage />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </StyledMain>
       <SiteFooter />
