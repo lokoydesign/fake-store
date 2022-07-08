@@ -13,6 +13,7 @@ import FeaturedProducts from '../sections/FeaturedProducts'
 import Rating from '../components/Rating'
 import StockStatus from '../components/StockStatus'
 import Button from '../components/Button'
+import AmountSelector from '../components/AmountSelector'
 
 export default function ProductPage() {
   const [ data, setData ] = useState(null)
@@ -64,11 +65,14 @@ export default function ProductPage() {
         <strong className="product__price">{data.price.toFixed(2)} Credits</strong>
         <Rating className="product__rating" {...data.rating} />
         <StockStatus className="product__stock-status" amountInStock={999} />
-        <div className="product__amount-selector">
-          <button onClick={() => setAmount(amount > 1 ? amount-1 : amount)}>-</button>
-          <input type="number" min={1} value={amount} readOnly />
-          <button onClick={() => setAmount(amount+1)}>+</button>
-        </div>
+        
+        <AmountSelector
+          className="product__amount-selector"
+          onSubtract={() => setAmount(amount > 1 ? amount-1 : amount)}
+          onAdd={() => setAmount(amount+1)}
+          value={amount}
+        />
+        
         <Button className="product__button" text="Add to cart" onClick={() => dispatch(addItemToCart({...data, amount: 1}))}/>
       </StyledProductSection>
 
@@ -131,11 +135,6 @@ const StyledProductSection = styled.section.attrs(props => ({className}))`
   }
 
   .${className}__amount-selector {
-    display: flex;
-    border: .063em solid var(--color-gray);
-    justify-content: flex-start;
-    border-radius: .25em;
-
     @media (min-width: 26em) {
       grid-column: span 4;
     }
@@ -143,22 +142,6 @@ const StyledProductSection = styled.section.attrs(props => ({className}))`
     @media (min-width: 64em) {
       grid-column: span 2;
     }
-
-    > * {
-      border: none;
-      font-size: 1.4rem;
-      padding: .5em;
-    }
-
-    button {
-      cursor: pointer;
-    }
-    
-    input {
-      width: 5ch;
-      text-align: center;
-    }
-
   }
 
   .${className}__button {
