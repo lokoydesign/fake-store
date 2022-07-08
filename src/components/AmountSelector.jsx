@@ -19,12 +19,12 @@ const StyledAmountSelector = styled.div.attrs({className})`
 
   > * {
     border: none;
-    border: .063em solid var(--color-gray--500);
+    border: .063em solid var(--color-gray);
     padding: .5em;
   }
 
   .${className}__button {
-    background-color: var(--color-gray--500);
+    background-color: var(--color-gray);
     cursor: pointer;
   }
   
