@@ -17,6 +17,20 @@ const reducers = {
 
   removeItemFromCart: function(state, action) {
     state.items = state.items.filter(({ id }) => id !== action.payload)
+  },
+
+  addToItemAmount: function(state, action) {
+    const item = state.items.find(({ id }) => id === action.payload.id)
+
+    if (item)
+      item.amount += action.payload.amount
+  },
+
+  subtractFromItemAmount: function(state, action) {
+    const item = state.items.find(({ id }) => id === action.payload.id)
+
+    if (item)
+      item.amount -= action.payload.amount
   }
 }
 
@@ -28,7 +42,9 @@ const cartSlice = createSlice({
 
 export const {
   addItemToCart,
-  removeItemFromCart
+  removeItemFromCart,
+  addToItemAmount,
+  subtractFromItemAmount
 } = cartSlice.actions
 
 export default cartSlice.reducer
