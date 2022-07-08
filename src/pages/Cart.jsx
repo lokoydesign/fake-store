@@ -25,7 +25,7 @@ export default function CartPage() {
         {items.map(product => <div className="cart__product">
           <img className="cart__product__image" src={product.image} alt={product.title} />
           <h6 className="cart__product__title">{product.title}</h6>
-          <AmountSelector
+          <StyledAmountSelector
             className="cart__product__amount-selector"
             onAdd={() => dispatch(addToItemAmount({id: product.id, amount: 1}))}
             onSubtract={() => 
@@ -142,6 +142,13 @@ const StyledCartSection = styled.section.attrs(props => ({className}))`
     }
   }
 `
+
+const StyledAmountSelector = styled(AmountSelector)`
+  > * {
+    font-size: .925rem;
+  }
+`
+
 const StyledTrashIcon = styled(FontAwesomeIcon)`
   border: .063em solid var(--color-gray);
   border-radius: .25em;
