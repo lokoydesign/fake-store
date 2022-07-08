@@ -135,6 +135,10 @@ const StyledProductSection = styled.section.attrs(props => ({className}))`
   }
 
   .${className}__amount-selector {
+    > * {
+      font-size: 1.4rem;
+    }
+
     @media (min-width: 26em) {
       grid-column: span 4;
     }
@@ -179,9 +183,5 @@ const StyledProductLoadingSection = styled(StyledProductSection)`
   .${className}__rating,
   .${className}__stock-status {
     max-width: 10em;
-  }
-
-  .${className}__amount-selector {
-    border: none;
   }
 `

@@ -13,22 +13,23 @@ export default function AmountSelector({ className, value, onSubtract, onAdd }) 
 const className = 'amount-selector'
 
 const StyledAmountSelector = styled.div.attrs({className})`
-  display: flex;
-  border: .063em solid var(--color-gray);
-  justify-content: flex-start;
+  display: inline-flex;
   border-radius: .25em;
+  overflow: hidden;
 
   > * {
     border: none;
-    font-size: 1.4rem;
+    border: .063em solid var(--color-gray--500);
     padding: .5em;
   }
 
   .${className}__button {
+    background-color: var(--color-gray--500);
     cursor: pointer;
   }
   
   .${className}__number {
+    border-inline: none;
     width: 5ch;
     text-align: center;
   }
