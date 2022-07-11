@@ -16,13 +16,15 @@ export default function StoreFront() {
       .catch(console.error)
   }, [])
 
+  if (categories.length <= 0) return
+
   return (
     <>
       <SummerSaleBanner />
       <FeaturedProducts size={8} />
       <ClubBanner />
-      {categories.length > 0 && <FeaturedProducts title={categories[0]} category={categories[0]} />}
-      {categories.length > 0 && <FeaturedProducts title={categories[1]} category={categories[1]} />}
+      <FeaturedProducts title={categories[0]} category={categories[0]} />
+      <FeaturedProducts title={categories[1]} category={categories[1]} />
     </>
   )
 }
