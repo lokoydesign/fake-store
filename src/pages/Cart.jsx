@@ -1,14 +1,22 @@
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import Basket from './Cart/Basket'
 import Summary from './Cart/Summary'
 
-export default function cart() {
+import Button from '../components/Button'
+
+export default function Cart() {
+  const items = useSelector(state => state.cart.items)
+  const navigate = useNavigate()
   
   return (
     <StyledCartSection>
       <Basket />
-      <Summary />
+      <Summary>
+        {items.length > 0 && <Button text="Checkout" onClick={() => navigate('/checkout')}/>}
+      </Summary>
     </StyledCartSection>
   )
 }

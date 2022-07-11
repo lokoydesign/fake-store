@@ -11,6 +11,7 @@ import StoreFrontPage from './pages/StoreFront'
 import CategoryPage from './pages/Category'
 import ProductPage from './pages/Product'
 import CartPage from './pages/Cart'
+import CheckoutPage from './pages/Checkout'
 
 export default function App() {
   const location = useLocation()
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </StyledMain>
       <SiteFooter />
