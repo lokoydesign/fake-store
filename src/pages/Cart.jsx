@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 
 import Basket from './Cart/Basket'
 import Summary from './Cart/Summary'
@@ -9,13 +8,12 @@ import Button from '../components/Button'
 
 export default function Cart() {
   const items = useSelector(state => state.cart.items)
-  const navigate = useNavigate()
   
   return (
     <StyledCartSection>
       <Basket />
       <Summary>
-        {items.length > 0 && <Button text="Checkout" onClick={() => navigate('/checkout')}/>}
+        {items.length > 0 && <Button to="/checkout">Checkout</Button>}
       </Summary>
     </StyledCartSection>
   )

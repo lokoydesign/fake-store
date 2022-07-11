@@ -12,16 +12,6 @@ export default function ProductCard(props) {
   const { isLoading, id, title, image, rating, price } = props
   const dispatch = useDispatch()
 
-  function handleAddToCart() {
-    dispatch(addItemToCart({
-      id,
-      title,
-      image,
-      price,
-      amount: 1
-    }))
-  }
-
   if (isLoading) return (
     <StyledLoadingProductCard />
   )
@@ -40,7 +30,7 @@ export default function ProductCard(props) {
       <span className="product-card__price">{price.toFixed(2)} Credits</span>
       <Rating className="product-card__rating" {...rating} />
       <StockStatus className="product-card__stock-status" amountInStock={999} />
-      <Button className="product-card__button" text="Add to cart" onClick={handleAddToCart} />
+      <Button className="product-card__button" to={`/product/${id}`}>View and buy</Button>
     </StyledProductCard>
   )
 }

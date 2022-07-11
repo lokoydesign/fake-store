@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { addItemToCart } from '../features/cartSlice'
@@ -20,6 +20,7 @@ export default function ProductPage() {
   const [ isLoading, setIsLoading ] = useState(true)
   const [ amount, setAmount ] = useState(1)
   const params = useParams()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   useEffect(function() {
@@ -73,7 +74,10 @@ export default function ProductPage() {
           value={amount}
         />
         
-        <Button className="product__button" text="Add to cart" onClick={() => dispatch(addItemToCart({...data, amount: 1}))}/>
+        <Button className="product__button" onClick={() => {
+          dispatch(addItemToCart({...data, amount: 1}))
+          navigate('/cart')
+        }}>Add to cart</Button>
       </StyledProductSection>
 
       <ClubBanner />

@@ -16,7 +16,7 @@ export default function Checkout() {
       <Shipping />
       <Payment />
       <Summary>
-        <Button text="Place order" onClick={handleOrder}/>
+        <Button onClick={handleOrder}>Place order</Button>
       </Summary>
     </StyledCheckoutSection>
   )
