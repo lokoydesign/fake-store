@@ -36,6 +36,7 @@ const StyledLoadingTitle = styled.div`
   height: 1.5em;
   border-radius: .5em;
   grid-column: span 4;
+  cursor: wait;
 `
 
 const StyledTitle = styled.h3`

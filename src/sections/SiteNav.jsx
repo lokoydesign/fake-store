@@ -74,6 +74,7 @@ const StyledLoadingMenuItem = styled.span`
   width: 5em;
   height: 1rem;
   border-radius: .5em;
+  cursor: wait;
 `
 
 const StyledToggleIcon = styled(FontAwesomeIcon)`

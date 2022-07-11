@@ -175,6 +175,7 @@ const StyledProductLoadingSection = styled(StyledProductSection)`
     width: 100%;
     height: 2em;
     border-radius: .25em;
+    cursor: wait;
   }
 
   .${className}__image-wrapper {

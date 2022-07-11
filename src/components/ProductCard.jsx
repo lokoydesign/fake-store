@@ -39,6 +39,7 @@ const StyledLoadingProductCard = styled.div`
   width: 100%;
   min-height: 32em;
   border-radius: .5em;
+  cursor: wait;
 `
 
 const StyledProductCard = styled.div.attrs(props => ({className}))`
