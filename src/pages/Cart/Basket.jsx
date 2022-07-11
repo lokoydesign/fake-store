@@ -86,10 +86,6 @@ const StyledBasket = styled.div.attrs(() => ({className}))`
       grid-area: price;
       color: var(--color-blue);
     }
-
-    &__amount-selector {
-      /* grid-area: amount; */
-    }
   }
 
   .${className}__product + .${className}__product {
