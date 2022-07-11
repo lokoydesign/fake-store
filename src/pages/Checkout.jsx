@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import Layout from '../layouts/Main'
+
 import Shipping from './Cart/Shipping'
 import Payment from './Cart/Payment'
 import Summary from './Cart/Summary'
@@ -12,19 +14,17 @@ export default function Checkout() {
   }
 
   return (
-    <StyledCheckoutSection>
+    <StyledLayout>
       <Shipping />
       <Payment />
-      <Summary>
+      <StyledSummary>
         <Button onClick={handleOrder}>Place order</Button>
-      </Summary>
-    </StyledCheckoutSection>
+      </StyledSummary>
+    </StyledLayout>
   )
 }
 
-const className = 'checkout'
-
-const StyledCheckoutSection = styled.section.attrs(() => ({className}))`
+const StyledLayout = styled(Layout)`
   display: grid;
   align-items: start;
   gap: 1em;
@@ -39,8 +39,10 @@ const StyledCheckoutSection = styled.section.attrs(() => ({className}))`
     border: .063em solid var(--color-gray);
     width: 100%;
   }
+`
 
-  .summary {
+const StyledSummary = styled(Summary)`
+  @media (min-width: 48em) {
     grid-row: 1 / 3;
     grid-column: 2;
   }

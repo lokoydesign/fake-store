@@ -6,11 +6,8 @@ import Rating from './Rating'
 import StockStatus from './StockStatus'
 import Button from './Button'
 
-import { addItemToCart } from '../features/cartSlice'
-
 export default function ProductCard(props) {
   const { isLoading, id, title, image, rating, price } = props
-  const dispatch = useDispatch()
 
   if (isLoading) return (
     <StyledLoadingProductCard />

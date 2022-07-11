@@ -7,6 +7,8 @@ import { addItemToCart } from '../features/cartSlice'
 
 import { ENDPOINTS } from '../constants'
 
+import Layout from '../layouts/Main'
+
 import ClubBanner from '../banners/Club'
 import FeaturedProducts from '../sections/FeaturedProducts'
 
@@ -39,7 +41,7 @@ export default function ProductPage() {
   }, [params.id])
 
   if (isLoading) return (
-    <>
+    <Layout>
       <StyledProductLoadingSection>
         <div className="product__image-wrapper"></div>
         <span className="product__title"></span>
@@ -52,11 +54,11 @@ export default function ProductPage() {
       </StyledProductLoadingSection>
 
       <ClubBanner />
-    </>
+    </Layout>
   )
 
   return (
-    <>
+    <Layout>
       <StyledProductSection isLoading={isLoading}>
         <div className="product__image-wrapper">
           {data.image && <img className="product__image" src={data.image} alt={data.title} />}
@@ -83,7 +85,7 @@ export default function ProductPage() {
       <ClubBanner />
       
       <FeaturedProducts title="You might also like" category={data.category} />
-    </>
+    </Layout>
   )
 }
 

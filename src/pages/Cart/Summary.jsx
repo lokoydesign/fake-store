@@ -46,7 +46,11 @@ export default function CartSummary({ className, children }) {
 
 const className = 'summary'
 
-const StyledSummary = styled.div.attrs(() => ({className}))`
+const StyledSummary = styled.section.attrs(() => ({className}))`
+  @media (min-width: 48em) {
+    max-width: 20em;
+  }
+
   .${className}__list {
     display: flex;
     flex-direction: column;

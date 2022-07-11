@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
+import Layout from '../layouts/Main'
+
 import PageHeader from '../components/PageHeader'
 import ProductCard from '../components/ProductCard'
 import ProductCardsContainer from '../components/ProductCardsContainer'
@@ -35,7 +37,7 @@ export default function CategoryPage() {
   }, [params.category])
   
   return (
-    <>
+    <Layout>
       <PageHeader title={params.category}/>
       <ProductCardsContainer isLoading={isLoading} size={16}>
         {products.map((product, i) => <ProductCard key={product.id || i} {...product}/>)}
@@ -43,6 +45,6 @@ export default function CategoryPage() {
       <ClubBanner />
       <FeaturedProducts />
       <SummerSaleBanner />
-    </>
+    </Layout>
   )
 }

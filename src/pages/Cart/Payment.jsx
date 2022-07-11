@@ -9,7 +9,7 @@ export default function Payment() {
 
   return (
     <StyledPayment>
-      <h1>Payment options</h1>
+      <h2>Payment options</h2>
 
       {paymentOptions.map(option => <div
         className={`payment__option ${paymentOption.id === option.id && 'payment__option--selected'}`}
@@ -23,7 +23,7 @@ export default function Payment() {
 
 const className = 'payment'
 
-const StyledPayment = styled.div.attrs(() => ({className}))`
+const StyledPayment = styled.section.attrs(() => ({className}))`
   display: flex;
   flex-direction: column;
   gap: 1em;

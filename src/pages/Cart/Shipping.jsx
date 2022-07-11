@@ -9,7 +9,7 @@ export default function Shipping() {
 
   return (
     <StyledShipping>
-      <h1>Shipping options</h1>
+      <h2>Shipping options</h2>
 
       {shippingOptions.map(option => <div
         className={`shipping__option ${shippingOption.id === option.id && 'shipping__option--selected'}`}
@@ -24,7 +24,7 @@ export default function Shipping() {
 
 const className = 'shipping'
 
-const StyledShipping = styled.div.attrs(() => ({className}))`
+const StyledShipping = styled.section.attrs(() => ({className}))`
   display: flex;
   flex-direction: column;
   gap: 1em;

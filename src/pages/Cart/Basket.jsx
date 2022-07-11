@@ -18,7 +18,7 @@ export default function Basket({ className }) {
 
   return (
     <StyledBasket className={className}>
-      <h1>Basket</h1>
+      <h2>Basket</h2>
       {items.map(product => <div className="basket__product">
         <img className="basket__product__image" src={product.image} alt={product.title} />
         <Link className="basket__product__title" to={`/products/${product.id}`}>{product.title}</Link>
@@ -39,7 +39,7 @@ export default function Basket({ className }) {
 
 const className = 'basket'
 
-const StyledBasket = styled.div.attrs(() => ({className}))`
+const StyledBasket = styled.section.attrs(() => ({className}))`
   display: flex;
   flex-direction: column;
   gap: 2em;

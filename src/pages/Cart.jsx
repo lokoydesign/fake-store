@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 
+import Layout from '../layouts/Main'
+
 import Basket from './Cart/Basket'
 import Summary from './Cart/Summary'
 
@@ -10,20 +12,18 @@ export default function Cart() {
   const items = useSelector(state => state.cart.items)
   
   return (
-    <StyledCartSection>
+    <StyledLayout>
       <Basket />
       <Summary>
         {items.length > 0 && <Button to="/checkout">Checkout</Button>}
       </Summary>
-    </StyledCartSection>
+    </StyledLayout>
   )
 }
 
-const StyledCartSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
+const StyledLayout = styled(Layout)`
   gap: 1em;
+  align-items: start;
 
   @media (min-width: 48em) {
     flex-direction: initial;
@@ -34,11 +34,5 @@ const StyledCartSection = styled.section`
     padding: 1em;
     border: .063em solid var(--color-gray);
     width: 100%;
-  }
-
-  .summary {
-    @media (min-width: 48em) {
-      width: 20em;
-    }
   }
 `
