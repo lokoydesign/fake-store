@@ -21,8 +21,8 @@ export default function StoreFront() {
       <SummerSaleBanner />
       <FeaturedProducts size={8} />
       <ClubBanner />
-      <FeaturedProducts title={categories[0]} category={categories[0]} />
-      <FeaturedProducts title={categories[1]} category={categories[1]} />
+      {categories.length > 0 && <FeaturedProducts title={categories[0]} category={categories[0]} />}
+      {categories.length > 0 && <FeaturedProducts title={categories[1]} category={categories[1]} />}
     </>
   )
 }
