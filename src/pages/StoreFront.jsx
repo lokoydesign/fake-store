@@ -18,7 +18,7 @@ export default function StoreFront() {
       .catch(console.error)
   }, [])
 
-  if (categories.length <= 0) return
+  if (categories.length <= 0) return <Layout></Layout>
 
   return (
     <Layout>
