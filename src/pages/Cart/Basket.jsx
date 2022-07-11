@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
@@ -20,7 +21,7 @@ export default function Basket({ className }) {
       <h1>Basket</h1>
       {items.map(product => <div className="basket__product">
         <img className="basket__product__image" src={product.image} alt={product.title} />
-        <h6 className="basket__product__title">{product.title}</h6>
+        <Link className="basket__product__title" to={`/products/${product.id}`}>{product.title}</Link>
         <b className="basket__product__price">{(product.price * product.amount).toFixed(2)} ({product.price.toFixed(2)}) Credits</b>
         <StyledAmountSelector
           className="basket__product__amount-selector"
@@ -76,6 +77,12 @@ const StyledBasket = styled.div.attrs(() => ({className}))`
       font-size: 1rem;
       width: 100%;
       font-weight: 600;
+      color: var(--color-black);
+
+      &:hover {
+        text-decoration: none;
+        color: var(--color-blue);
+      }
 
       @media (min-width: 48em) {
         font-size: 1.2rem;
