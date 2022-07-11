@@ -49,17 +49,11 @@ const reducers = {
   },
 
   setShippingOption: function(state, action) {
-    const option = shippingOptions.find(({ id }) => id === action.payload)
-
-    if (option)
-      state.shipping = option
+    state.shipping = action.payload
   },
 
   setpaymentOption: function(state, action) {
-    const option = paymentOptions.find(({ id }) => id === action.payload)
-
-    if (option)
-      state.payment = option
+    state.payment = action.payload
   }
 }
 
