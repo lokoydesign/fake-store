@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons' 
@@ -5,7 +6,7 @@ import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 export default function SiteHeader() {
   return (
     <StyledHeader>
-      <StyledH1>FakeStore</StyledH1>
+      <StyledLogo to="/">FakeStore</StyledLogo>
       <StyledSocialNav>
         <a href="#" title="Join us on Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
         <a href="#" title="Join us on Facebook"><FontAwesomeIcon icon={faFacebook} /></a>
@@ -26,7 +27,7 @@ const StyledHeader = styled.header`
   }
 `
 
-const StyledH1 = styled.h1`
+const StyledLogo = styled(Link)`
   background-color: var(--color-white);
   margin: 0;
   padding: .5em;
@@ -34,6 +35,10 @@ const StyledH1 = styled.h1`
   font-weight: 800;
   border-radius: .25em;
   color: var(--color-blue);
+
+  &:hover {
+    text-decoration: none;
+  }
 `
 
 const StyledSocialNav = styled.nav`
