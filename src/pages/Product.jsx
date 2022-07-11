@@ -75,7 +75,7 @@ export default function ProductPage() {
         />
         
         <Button className="product__button" onClick={() => {
-          dispatch(addItemToCart({...data, amount: 1}))
+          dispatch(addItemToCart({...data, amount}))
           navigate('/cart')
         }}>Add to cart</Button>
       </StyledProductSection>
