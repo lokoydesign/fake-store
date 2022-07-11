@@ -52,7 +52,7 @@ const reducers = {
     state.shipping = action.payload
   },
 
-  setpaymentOption: function(state, action) {
+  setPaymentOption: function(state, action) {
     state.payment = action.payload
   }
 }
@@ -69,7 +69,7 @@ export const {
   addToItemAmount,
   subtractFromItemAmount,
   setShippingOption,
-  setpaymentOption,
+  setPaymentOption,
 } = cartSlice.actions
 
 export default cartSlice.reducer
