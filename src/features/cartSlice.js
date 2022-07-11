@@ -1,7 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+export const taxPercentage = .25
+
+export const shippingOptions = [
+  {id: 'postoffice', name: 'Your local post office', price: 49.99},
+  {id: 'pickup', name: 'Your nearest pickup point', price: 21.50},
+  {id: 'door', name: 'Right to your door', price: 99.99},
+]
+
+export const paymentOptions = [
+  {id: 'visamastercard', name: 'Visa or master card'},
+  {id: 'paylater', name: 'Pay later'},
+]
+
 const initialState = {
-  items: []
+  items: [],
+  shipping: shippingOptions[0],
+  payment: paymentOptions[0],
 }
 
 const reducers = {
@@ -31,6 +46,20 @@ const reducers = {
 
     if (item)
       item.amount -= action.payload.amount
+  },
+
+  setShippingOption: function(state, action) {
+    const option = shippingOptions.find(({ id }) => id === action.payload)
+
+    if (option)
+      state.shipping = option
+  },
+
+  setpaymentOption: function(state, action) {
+    const option = paymentOptions.find(({ id }) => id === action.payload)
+
+    if (option)
+      state.payment = option
   }
 }
 
@@ -44,7 +73,9 @@ export const {
   addItemToCart,
   removeItemFromCart,
   addToItemAmount,
-  subtractFromItemAmount
+  subtractFromItemAmount,
+  setShippingOption,
+  setpaymentOption,
 } = cartSlice.actions
 
 export default cartSlice.reducer
