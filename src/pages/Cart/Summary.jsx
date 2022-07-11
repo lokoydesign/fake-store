@@ -1,10 +1,22 @@
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { taxPercentage } from '../../features/cartSlice'
 
-export default function CartSummary({ className }) {
+export default function CartSummary({ className, children }) {
+  const [ costs, setCosts ] = useState({products: 0, tax: 0, shipping: 0, total: 0})
   const { items, shipping } = useSelector(state => state.cart)
+
+  useEffect(function() {
+    setCosts({
+      ...costs,
+      products: items.reduce((total, { price, amount }) => total += price * (1 - taxPercentage) * amount, 0),
+      tax: items.reduce((total, { price, amount }) => total += price * taxPercentage * amount, 0),
+      shipping: items.length > 0 ? shipping.price : 0,
+      total: items.length > 0 ? items.reduce((total, { price, amount }) => total += price * amount, 0) + shipping.price : 0
+    })
+  }, [items, shipping])
 
   return (
     <StyledSummary className={className}>
@@ -12,21 +24,22 @@ export default function CartSummary({ className }) {
       <ul className="summary__list">
         <li className="summary__list__item">
           <b>Products:</b>
-          <span>{items.reduce((total, { price, amount }) => total += price * (1 - taxPercentage) * amount, 0).toFixed(2)}</span>
+          <span>{costs.products.toFixed(2)}</span>
         </li>
         <li className="summary__list__item">
           <b>Tax:</b>
-          <span>{items.reduce((total, { price, amount }) => total += price * taxPercentage * amount, 0).toFixed(2)}</span>
+          <span>{costs.tax.toFixed(2)}</span>
         </li>
         <li className="summary__list__item">
           <b>Shipping:</b>
-          <span>{shipping.price.toFixed(2)}</span>
+          <span>{costs.shipping.toFixed(2)}</span>
         </li>
         <li className="summary__list__item summary__list__item--total">
           <b>Total:</b>
-          <span>{(items.reduce((total, { price, amount }) => total += price * amount, 0) + shipping.price).toFixed(2)}</span>
+          <span>{costs.total.toFixed(2)}</span>
         </li>
       </ul>
+      {children}
     </StyledSummary>
   )
 }
