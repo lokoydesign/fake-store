@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
+import GlobalStyles from './Styles'
+
 import SiteHeader from './sections/SiteHeader'
 import SiteNav from './sections/SiteNav'
 import SiteFooter from './sections/SiteFooter'
@@ -21,6 +23,7 @@ export default function App() {
 
   return (
     <>
+      <GlobalStyles />
       <SiteHeader />
       <SiteNav />
       <Routes>
