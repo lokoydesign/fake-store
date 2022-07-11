@@ -35,7 +35,7 @@ export default function ProductCard(props) {
 const className = 'product-card'
 
 const StyledLoadingProductCard = styled.div`
-  background-color: var(--color-gray--500);
+  background-color: var(--color-gray);
   width: 100%;
   min-height: 32em;
   border-radius: .5em;

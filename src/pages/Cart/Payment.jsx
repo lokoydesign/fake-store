@@ -31,14 +31,14 @@ const StyledPayment = styled.section.attrs(() => ({className}))`
   .${className}__option {
     display: flex;
     gap: 2em;
-    background-color: var(--color-gray--500);
+    background-color: var(--color-gray--300);
     padding: 1em;
     font-weight: 500;
     border-radius: .5em;
     cursor: pointer;
 
     &::before {
-      background-color: var(--color-gray);
+      background-color: var(--color-gray--500);
       display: block;
       content: '';
       width: 1em;

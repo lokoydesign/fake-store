@@ -70,7 +70,7 @@ const StyledNavContainer = styled.div`
 `
 
 const StyledLoadingMenuItem = styled.span`
-  background-color: var(--color-gray--500);
+  background-color: var(--color-gray);
   width: 5em;
   height: 1rem;
   border-radius: .5em;

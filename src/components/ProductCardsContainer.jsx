@@ -31,7 +31,7 @@ const StyledContainer = styled.section`
 `
 
 const StyledLoadingTitle = styled.div`
-  background-color: var(--color-gray--500);
+  background-color: var(--color-gray);
   width: 25%;
   height: 1.5em;
   border-radius: .5em;

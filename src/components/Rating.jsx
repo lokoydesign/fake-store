@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
 `
 
 const StyledSpan = styled.span`
-  background-color: ${props => props.lit ? 'var(--color-blue)' : 'var(--color-gray)'};
+  background-color: ${props => props.lit ? 'var(--color-blue)' : 'var(--color-gray--500)'};
   width: 1em;
   height: 1em;
   border-radius: 50%;

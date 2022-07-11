@@ -171,7 +171,7 @@ const StyledProductSection = styled.section.attrs(props => ({className}))`
 
 const StyledProductLoadingSection = styled(StyledProductSection)`
   > * {
-    background-color: var(--color-gray--500);
+    background-color: var(--color-gray);
     width: 100%;
     height: 2em;
     border-radius: .25em;

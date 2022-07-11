@@ -96,7 +96,7 @@ const StyledBasket = styled.section.attrs(() => ({className}))`
   }
 
   .${className}__product + .${className}__product {
-    border-block-start: .063em solid var(--color-gray--500);
+    border-block-start: .063em solid var(--color-gray);
     padding-block-start: 2em;
   }
 `

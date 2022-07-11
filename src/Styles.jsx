@@ -5,14 +5,15 @@ export default createGlobalStyle`
     --color-black: #5a5a5a;
     --color-white: #FFFFFF;
 
-    --color-gray: #D9D9D9;
+    --color-gray: #eceff1;
 
-    --color-gray--200: #919191;
-    --color-gray--300: #c6c6c6;
+    --color-gray--200: #f7f7f7;
+    --color-gray--300: #f5f5f5;
     --color-gray--400: var(--color-gray);
-    --color-gray--500: #f7f7f7;
+    --color-gray--500: #D9D9D9;
+    --color-gray--600: #c6c6c6;
+    --color-gray--700: #919191;
     
-
     --color-blue: #44a5ff;
     --color-red: #ff4444;
     --color-orange: #ffa844;
