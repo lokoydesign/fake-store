@@ -16,6 +16,7 @@ export default function Cart() {
       <Basket />
       <Summary>
         {items.length > 0 && <Button to="/checkout">Checkout</Button>}
+        <Button to="/" isPrimary={false}>Continue shopping</Button>
       </Summary>
     </StyledLayout>
   )

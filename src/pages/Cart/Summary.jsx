@@ -47,6 +47,10 @@ export default function CartSummary({ className, children }) {
 const className = 'summary'
 
 const StyledSummary = styled.section.attrs(() => ({className}))`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+    
   @media (min-width: 48em) {
     max-width: 20em;
   }
