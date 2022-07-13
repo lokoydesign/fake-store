@@ -10,6 +10,13 @@ import NewsletterBanner from '../banners/Newsletter'
 export default function StoreFront() {
   const { categories } = useSelector(state => state.store)
   
+  if (categories.length < 1) return (
+    <Layout>
+      <SummerSaleBanner />
+      <FeaturedProducts size={8} />
+    </Layout>
+  )
+
   return (
     <Layout>
       <SummerSaleBanner />
