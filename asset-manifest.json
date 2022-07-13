@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/fake-store/static/js/main.e272c540.js",
+    "static/js/787.11cfd65f.chunk.js": "/fake-store/static/js/787.11cfd65f.chunk.js",
+    "static/media/summer_sale.png": "/fake-store/static/media/summer_sale.1b916f5c722900a2faa7.png",
+    "static/media/instagram.png": "/fake-store/static/media/instagram.bd89f4de0c94bb3c2691.png",
+    "index.html": "/fake-store/index.html",
+    "main.e272c540.js.map": "/fake-store/static/js/main.e272c540.js.map",
+    "787.11cfd65f.chunk.js.map": "/fake-store/static/js/787.11cfd65f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e272c540.js"
+  ]
+}
