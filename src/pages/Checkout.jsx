@@ -1,5 +1,6 @@
-import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 
 import { clearCart } from '../features/cartSlice'
 
@@ -13,10 +14,12 @@ import Button from '../components/Button'
 
 export default function Checkout() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   function handleOrder() {
     alert('Order placed')
     dispatch(clearCart())
+    navigate('/')
   }
 
   return (
