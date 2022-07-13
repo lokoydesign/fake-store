@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+
+import { clearCart } from '../features/cartSlice'
 
 import Layout from '../layouts/Main'
 
@@ -9,8 +12,11 @@ import Summary from './Cart/Summary'
 import Button from '../components/Button'
 
 export default function Checkout() {
+  const dispatch = useDispatch()
+
   function handleOrder() {
     alert('Order placed')
+    dispatch(clearCart())
   }
 
   return (
