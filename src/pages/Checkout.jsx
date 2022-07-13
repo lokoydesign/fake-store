@@ -8,6 +8,7 @@ import Layout from '../layouts/Main'
 
 import Shipping from './Cart/Shipping'
 import Payment from './Cart/Payment'
+import AddressForm from './Cart/AddressForm'
 import Summary from './Cart/Summary'
 
 import Button from '../components/Button'
@@ -24,6 +25,7 @@ export default function Checkout() {
 
   return (
     <StyledLayout>
+      <AddressForm />
       <Shipping />
       <Payment />
       <StyledSummary>
