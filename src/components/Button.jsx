@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
-
 export default function Button({ className, isPrimary = true, to, onClick, children }) {
 
   if (to)
