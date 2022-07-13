@@ -8,6 +8,7 @@ import SiteNav from './sections/SiteNav'
 import SiteFooter from './sections/SiteFooter'
 import Copyright from './sections/Copyright'
 
+import NotFoundPage from './pages/NotFound'
 import StoreFrontPage from './pages/StoreFront'
 import CategoryPage from './pages/Category'
 import ProductPage from './pages/Product'
@@ -27,7 +28,8 @@ export default function App() {
       <SiteHeader />
       <SiteNav />
       <Routes>
-        <Route path="*" element={<StoreFrontPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/" element={<StoreFrontPage />} />
         <Route path="/category/:category" element={<CategoryPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
