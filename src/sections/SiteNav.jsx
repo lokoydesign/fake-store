@@ -5,32 +5,14 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark, faHeart, faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
-import { ENDPOINTS } from '../constants'
-
 export default function SiteNav() {
   const [ isLoading, setIsLoading ] = useState(true)
-  const [ categories, setCategories ] = useState(Array(4).fill(null))
   const [ isMenuVisible, setIsMenuVisible ] = useState(false)
   const cart = useSelector(state => state.cart)
+  const { categories } = useSelector(state => state.store)
   const location = useLocation()
 
-  useEffect(function() {
-    async function fetchAndSetCategories() {
-      setIsLoading(true)
-
-      try {
-        const data = await fetch(ENDPOINTS.CATEGORIES).then(res => res.json())
-      
-        setCategories(data)
-      
-      } catch (err) { console.error(err) }
-      
-      setIsLoading(false)
-    }
-
-    fetchAndSetCategories()
-  }, [])
-
+  useEffect(() => setIsLoading(categories.length <= 0), [categories])
   useEffect(() => setIsMenuVisible(false), [location])
 
   return (

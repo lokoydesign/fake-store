@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
-
-import { ENDPOINTS } from '../constants'
+import { useSelector } from 'react-redux'
 
 import Layout from '../layouts/Main'
 
@@ -9,17 +7,8 @@ import SummerSaleBanner from '../banners/SummerSale'
 import ClubBanner from '../banners/Club'
 
 export default function StoreFront() {
-  const [ categories, setCategories ] = useState([])
-
-  useEffect(function() {
-    fetch(ENDPOINTS.CATEGORIES)
-      .then(res => res.json())
-      .then(setCategories)
-      .catch(console.error)
-  }, [])
-
-  if (categories.length <= 0) return <Layout></Layout>
-
+  const { categories } = useSelector(state => state.store)
+  
   return (
     <Layout>
       <SummerSaleBanner />

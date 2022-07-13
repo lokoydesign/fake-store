@@ -1,5 +1,10 @@
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Routes, Route, useLocation } from 'react-router-dom'
+
+import { ENDPOINTS } from './constants'
+
+import { setCategories } from './features/storeSlice'
 
 import GlobalStyles from './Styles'
 
@@ -16,7 +21,15 @@ import CartPage from './pages/Cart'
 import CheckoutPage from './pages/Checkout'
 
 export default function App() {
+  const dispatch = useDispatch()
   const location = useLocation()
+
+  useEffect(function() {
+    fetch(ENDPOINTS.CATEGORIES)
+      .then(res => res.json())
+      .then(categories => dispatch(setCategories(categories)))
+      .catch(console.error)
+  }, [])
 
   useEffect(function() {
     window.scrollTo(0, 0)
