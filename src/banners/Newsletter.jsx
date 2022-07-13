@@ -58,8 +58,8 @@ const StyledBanner = styled.div`
     }
 
     input {
-      background-color: var(--color-gray);
-      border: none;
+      background-color: var(--color-gray--300);
+      border: .063em solid var(--color-gray--500);
       font-size: 1rem;
       border-radius: .25em;
       padding: .75em 1em;
@@ -69,6 +69,7 @@ const StyledBanner = styled.div`
       background-color: var(--color-white);
       color: var(--color-blue);
       font-weight: 600;
+      border: none;
       cursor: pointer;
     }
   }
