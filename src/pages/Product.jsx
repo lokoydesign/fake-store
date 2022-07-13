@@ -54,6 +54,8 @@ export default function ProductPage() {
       </StyledProductLoadingSection>
 
       <ClubBanner />
+
+      <FeaturedProducts title="You might also like" />
     </Layout>
   )
 
