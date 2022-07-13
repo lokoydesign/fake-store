@@ -10,6 +10,7 @@ import { ENDPOINTS } from '../constants'
 import Layout from '../layouts/Main'
 
 import ClubBanner from '../banners/Club'
+import NewsletterBanner from '../banners/Newsletter'
 import FeaturedProducts from '../sections/FeaturedProducts'
 
 import Rating from '../components/Rating'
@@ -56,6 +57,8 @@ export default function ProductPage() {
       <ClubBanner />
 
       <FeaturedProducts title="You might also like" />
+
+      <NewsletterBanner />
     </Layout>
   )
 
@@ -87,6 +90,8 @@ export default function ProductPage() {
       <ClubBanner />
       
       <FeaturedProducts title="You might also like" category={data.category} />
+
+      <NewsletterBanner />
     </Layout>
   )
 }
